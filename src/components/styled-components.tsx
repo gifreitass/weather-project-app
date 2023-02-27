@@ -46,12 +46,17 @@ export const TitleCityStyle = styled.p`
 
 export const DivDayStyle = styled.div`
     display: flex;
-    margin-top: 25px;
+    margin-top: 10px;
     gap: 20px;
     font-size: medium;
     padding: 10px;
+    align-items: center;
 `
 
 export const DateDivDay = styled.p`
     font-weight: 500;
+`
+
+export const ImageWeather = styled.img`
+    width: 80px;
 `

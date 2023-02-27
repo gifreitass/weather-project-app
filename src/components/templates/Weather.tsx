@@ -48,7 +48,6 @@ const Weather = () => {
             getWeather(lat, lon)
             setCityName('')
         }
-        
     }
 
     return (
