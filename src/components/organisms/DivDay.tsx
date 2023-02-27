@@ -1,7 +1,7 @@
 import moment from 'moment';
 import 'moment/locale/pt-br';
 import { WeatherApi } from '../../weather-api.interface';
-import { DateDivDay, DivDayStyle } from "../styled-components"
+import { DateDivDay, DivDayStyle, ImageWeather } from "../styled-components"
 moment.locale('pt-br')
 
 const DivDay: React.FC<{selectedCity: WeatherApi}> = (props) => {
@@ -11,11 +11,12 @@ const DivDay: React.FC<{selectedCity: WeatherApi}> = (props) => {
         <>
             {props.selectedCity ?
                 index.map((index) => props.selectedCity.list[index]).map((day, index) => {
+                    console.log(day)
                     return <DivDayStyle key={index}>
                         <DateDivDay>{moment(day.dt_txt.split(' ')[0]).format('dddd')}</DateDivDay>
                         <p>{day.main.temp_min}°C</p>
                         <p>{day.main.temp_max}°C</p>
-                        <p>{day.weather[0].description.charAt(0).toUpperCase() + day.weather[0].description.slice(1)}</p>
+                        <ImageWeather src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt="imagem do detalhe do clima" />
                     </DivDayStyle>
                 })
                 :
