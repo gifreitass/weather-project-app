@@ -1,15 +1,19 @@
 import { combineReducers, createStore } from "redux";
 import { WeatherApi } from "../weather-api.interface";
-import weatherReducer from "./weather/reducer";
+import weatherReducer, { selectedDayReducer } from "./weather/reducers";
 
 export interface iState {
     weather: {
         weatherList: WeatherApi[]
+    },
+    selectedDay: {
+        dataDay: string
     }
 }
 
 const reducers = combineReducers({
-    weather: weatherReducer
+    weather: weatherReducer,
+    selectedDay: selectedDayReducer
 })
 
 const store = createStore(reducers)

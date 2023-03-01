@@ -6,3 +6,10 @@ export const setWeatherListAction = (weatherList: WeatherApi) => {
         payload: weatherList
     }
 }
+
+export const setSelectedDayAction = (dataDay: string | null) => {
+    return {
+        type: "SET_SELECTED_DAY",
+        payload: dataDay
+    }
+}

@@ -22,3 +22,20 @@ const weatherReducer = (state = WEATHER_INICIAL_STATE, action: iAction) => {
 }
 
 export default weatherReducer
+
+const SELECTED_DAY_INICIAL_STATE = {
+    dataDay: null
+}
+
+export const selectedDayReducer = (state = SELECTED_DAY_INICIAL_STATE, action: iAction) => {
+    switch (action.type) {
+        case "SET_SELECTED_DAY": 
+            return {
+                ...state,
+                dataDay: action.payload
+            }
+        default: 
+            return state
+    }
+}
+

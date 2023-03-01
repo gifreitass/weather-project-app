@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux/es/exports';
 import { setWeatherListAction } from "../../store/weather/actions"
 import { WeatherApi } from "../../weather-api.interface"
 import { VITE_API_KEY } from "../../envs"
+import ModalDayWeather from "../organisms/ModalDayWeather"
 import.meta.env.VITE_API_KEY
 
 const Weather = () => {
@@ -38,11 +39,11 @@ const Weather = () => {
         if (cityName) {
             const joinCityName = encodeURI(cityName)
             const findCity = weatherList.find(weather => weather.input === cityName)
+            const dataGeocoding = await getGeocoding(joinCityName)
             if (findCity) {
                 setSelectedCity(findCity)
                 return
             }
-            const dataGeocoding = await getGeocoding(joinCityName)
             const lat = dataGeocoding[0].lat
             const lon = dataGeocoding[0].lon
             getWeather(lat, lon)
@@ -56,7 +57,10 @@ const Weather = () => {
             <Search cityName={cityName} setCityName={setCityName} handleClick={handleClick} />
             <TitleCity cityName={apiTitleCity} />
             {selectedCity &&
-                <DivDay selectedCity={selectedCity} />
+                <>
+                    <DivDay selectedCity={selectedCity} />
+                    <ModalDayWeather selectedCity={selectedCity} />
+                </>
             }
         </DivWeather>
     )
