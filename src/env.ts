@@ -1,1 +1,0 @@
-export const VITE_API_KEY = '321340edca35e3b1a346859c2ed6337a';
