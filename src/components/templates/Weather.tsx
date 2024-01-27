@@ -19,7 +19,7 @@ const Weather = () => {
     const weatherList = useSelector((state: iState) => state.weather.weatherList)
 
     const getGeocoding = async (joinCityName: string) => {
-        const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${joinCityName}&limit=1&appid=${VITE_API_KEY}`)
+        const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${joinCityName}&limit=1&appid=${VITE_API_KEY}`)
         if (response.data) {
             setApiTitleCity(response.data[0].local_names.pt)
             return response.data
@@ -27,7 +27,7 @@ const Weather = () => {
     }
 
     const getWeather = async (lat: number, lon: number) => {
-        const response = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=pt_br&appid=${VITE_API_KEY}`)
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=pt_br&appid=${VITE_API_KEY}`)
         if (response.data) {
             const addaptedWeatherData = { ...response.data, input: cityName }
             store.dispatch(setWeatherListAction(addaptedWeatherData))
