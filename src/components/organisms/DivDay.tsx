@@ -8,7 +8,6 @@ import { DateDivDay, DivDayStyle, ImageWeather, ParagraphDivDay } from "../style
 const DivDay: React.FC<{ selectedCity: WeatherApi }> = (props) => {
     moment.locale('pt-br')
     const index = [5, 13, 21, 29, 37]
-    console.log(props.selectedCity)
 
     return (
         <>

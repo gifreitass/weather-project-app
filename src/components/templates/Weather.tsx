@@ -8,7 +8,7 @@ import store, { iState } from "../../store"
 import { useSelector } from 'react-redux/es/exports';
 import { setWeatherListAction } from "../../store/weather/actions"
 import { WeatherApi } from "../../weather-api.interface"
-import { VITE_API_KEY } from "../../envs"
+import { VITE_API_KEY } from "../../env"
 import ModalDayWeather from "../organisms/ModalDayWeather"
 import.meta.env.VITE_API_KEY
 
